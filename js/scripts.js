@@ -1,8 +1,14 @@
 // User Interface Logic
+
+function advertisement() {
+    window.alert("Do you need a new computer? Visit www.superextracomputersales.com to find the best deals!");
+    document.querySelector("form").removeEventListener("submit", advertisement);
+}
+
 window.addEventListener("load", function () {
     let form = document.querySelector("form");
-    let resetBtn = document.getElementById("reset");
-    let story = document.getElementById("story");
+    let resetBtn = document.querySelector("button#reset");
+    let story = document.querySelector("div#story");
 
     form.addEventListener("submit", function (event) {
         const person1Input = document.getElementById("person1Input").value;
@@ -30,9 +36,7 @@ window.addEventListener("load", function () {
         resetBtn.removeAttribute("class");
     });
 
-    form.addEventListener("submit", function () {
-        window.alert("Do you need a new computer? Visit www.superextracomputersales.com to find the best deals!");
-    });
+    form.addEventListener("submit", advertisement);
 
     resetBtn.addEventListener("click", function () {
         story.setAttribute("class", "hidden");
